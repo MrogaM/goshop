@@ -1,9 +1,16 @@
 package models
 
-type Product struct {
-	Id             int
-	Name, Category string
-	Price          float32
+type Buyable interface {
+	Generate(...interface{})
 }
 
-func Demo() {}
+type Product struct {
+	ID        int32
+	Name      string
+	Category  string
+	Price     float32
+	Sku       string
+	Quantity  int32
+	Available bool
+	Shipment  Shipment
+}
